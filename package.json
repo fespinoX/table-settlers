@@ -1,0 +1,28 @@
+{
+  "name": "table-settlers",
+  "version": "1.0.0",
+  "description": "A log for saving important information for board game setup",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.2"
+  },
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/style.scss public/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fespinoX/table-settlers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fespinoX/table-settlers/issues"
+  },
+  "homepage": "https://github.com/fespinoX/table-settlers#readme"
+}
