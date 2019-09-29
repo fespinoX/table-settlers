@@ -19,12 +19,26 @@
 </head>
 
 <body>
+  
+  <main>
+    <section class="home" id="home">
 
+      <div class="container">
+        <p>{{ message }}</p>
 
+        <ul class="game-list">
+          <games-item
+              v-for="item in gamesList"
+              v-bind:games="item"
+              v-bind:key="item.id"
+            ></games-item>
+        </ul>
+      </div>
+      
+          
+    </section>
+  </main>
 
-  <div id="app">
-    <p>{{ message }}</p>
-  </div>
 
 <script src="js/scripts.js"></script>
 </body>
