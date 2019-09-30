@@ -26,17 +26,37 @@
       <div class="container">
         <p>{{ message }}</p>
 
-        <ul class="game-list">
+        <!--<ul class="game-list">
           <games-item
               v-for="item in gamesList"
               v-bind:games="item"
               v-bind:key="item.id"
             ></games-item>
-        </ul>
+        </ul> -->
       </div>
       
           
     </section>
+
+    <section id="app">
+      <h2>Cats</h2>
+      <div v-for="(cat, n) in cats">
+        <p>
+          <span class="cat">{{ cat.name }}</span>
+          <span class="cat">{{ cat.superpower }}</span>
+          <button @click="removeCat(n)">Remove</button>
+        </p>
+      </div>
+
+      <p>
+        <input v-model="newCat">
+        <button @click="addCat">Add Cat</button>
+      </p>
+    </section>
+
+
+
+
   </main>
 
 
