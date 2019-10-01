@@ -29,12 +29,22 @@ const app = new Vue({
     	{ 
     		id: 0, 
     		name: 'Zelda',
-    		superpower: 'muted miaws'
+    		superpower: 'muted miaws',
+    		recursos: {
+    			tapitas: 5,
+    			pelusas: 1000,
+    			mimitos: 9000
+    		}
     	},
       	{ 
       		id: 1, 
       		name: 'Minerva',
-      		superpower: 'cuteness'
+      		superpower: 'cuteness',
+      		recursos: {
+    			pelo: 'mucho',
+    			caca: 200,
+    			mascaca: 6000
+    		}
       	},
       	{ 
       		id: 2, 
@@ -57,7 +67,7 @@ const app = new Vue({
       	// si no existe, agrega data al localStorage
         localStorage.removeItem('cats');
         localStorage.setItem('cats', JSON.stringify(this.cats));
-        
+
       }
     } 
   },

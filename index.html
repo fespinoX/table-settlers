@@ -44,6 +44,17 @@
         <p>
           <span class="cat">{{ cat.name }}</span>
           <span class="cat">{{ cat.superpower }}</span>
+
+          <!--<span class="cat">{{ cat.recursos }}</span>-->
+
+
+
+          <div v-for="(pepito, p) in cat.recursos">
+
+            <span class="pepito">{{ p }} : {{ pepito }}</span>
+
+          </div>
+
           <button @click="removeCat(n)">Remove</button>
         </p>
       </div>
