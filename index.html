@@ -5,38 +5,22 @@
   <title>Table settlers</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+
   <!-- Bootstrap -->
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  
+
   <!-- Compiled CSS -->
   <link rel="stylesheet" type="text/css" href="public/css/main.css">
 
   <!-- Vue -->
   <script src="node_modules/vue/dist/vue.js"></script>
-  
+
 
 </head>
 
 <body>
-  
+
   <main>
-    <section class="home" id="home">
-
-      <div class="container">
-        <p>{{ message }}</p>
-
-        <!--<ul class="game-list">
-          <games-item
-              v-for="item in gamesList"
-              v-bind:games="item"
-              v-bind:key="item.id"
-            ></games-item>
-        </ul> -->
-      </div>
-      
-          
-    </section>
 
     <section id="app">
       <h2>Cats</h2>
@@ -60,9 +44,33 @@
       </div>
 
       <p>
-        <input v-model="newCat">
+        <span>Cat name</span>
+        <input v-model="newCatName">
+        <span>Cat superpower</span>
+        <input v-model="newCatSP">
+        <!--<input v-model="newCaSP">-->
+
+        <ul>
+        <li v-for="(input, index) in inputs">
+          <span>Resource name</span>
+          <input type="text" v-model="input.resourceName">
+          <span>Qty</span>
+          <input type="text" v-model="input.resourceQty">
+          <button @click="deleteRow(index)">Delete</button>
+        </li>
+      </ul>
+      <button @click="addRow">Add row</button>
+
+      <br>
+
         <button @click="addCat">Add Cat</button>
       </p>
+
+
+
+
+
+
     </section>
 
 

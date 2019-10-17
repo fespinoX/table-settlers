@@ -1,33 +1,9 @@
-Vue.component('games-item', {
-  props: ['games'],
-  template: '<li class="game">{{ games.text }}</li>'
-})
-
-var home = new Vue({
-  el: '#home',
-  data: {
-    message: 'estos son los juegos, buachin',
-
-     gamesList: [
-
-      { id: 0, text: 'Tapestry' },
-      { id: 1, text: 'Dinosaur Island' },
-      { id: 2, text: '7 Wonders' }
-
-    ]
-  }
-})
-
-
-
-
-
 const app = new Vue({
   el: '#app',
   data: {
     cats: [
-    	{ 
-    		id: 0, 
+    	{
+    		//id: 0,
     		name: 'Zelda',
     		superpower: 'muted miaws',
     		recursos: {
@@ -36,8 +12,8 @@ const app = new Vue({
     			mimitos: 9000
     		}
     	},
-      	{ 
-      		id: 1, 
+      	{
+      		//id: 1,
       		name: 'Minerva',
       		superpower: 'cuteness',
       		recursos: {
@@ -46,13 +22,15 @@ const app = new Vue({
     			mascaca: 6000
     		}
       	},
-      	{ 
-      		id: 2, 
+      	{
+      		//id: 2,
       		name: 'Mariah',
       		superpower: 'mini size'
       	}
     ],
-    newCat: null
+    inputs: [],
+    newCatName: null,
+    newCatSP: null
   },
   mounted() {
 
@@ -61,7 +39,7 @@ const app = new Vue({
 
         // si ya existe cats en el localStorage, lo levanta
         this.cats = JSON.parse(localStorage.getItem('cats'));
-      
+
       } catch(e) {
 
       	// si no existe, agrega data al localStorage
@@ -69,17 +47,29 @@ const app = new Vue({
         localStorage.setItem('cats', JSON.stringify(this.cats));
 
       }
-    } 
+    }
   },
   methods: {
     addCat() {
       // ensure they actually typed something
-      if (!this.newCat) {
+      if (!this.newCatName) {
+        console.log("validate, bitch")
         return;
       }
 
-      this.cats.push(this.newCat);
-      this.newCat = '';
+
+
+
+      var tempCat = {
+        name: this.newCatName,
+        superpower: this.newCatSP,
+        pepa: this.newCatPepa,
+        papa: this.newCatPapa
+      };
+
+      this.cats.push(tempCat);
+      this.newCatName = '';
+      this.newCatSP = '';
       this.saveCats();
     },
     removeCat(x) {
@@ -89,6 +79,25 @@ const app = new Vue({
     saveCats() {
       const parsed = JSON.stringify(this.cats);
       localStorage.setItem('cats', parsed);
+    },
+
+
+
+
+
+
+    addRow() {
+      this.inputs.push({
+        resourceName: '',
+        resourceQty: ''
+      });
+    },
+
+
+    deleteRow(index) {
+      this.inputs.splice(index,1)
     }
+
+
   }
 })
